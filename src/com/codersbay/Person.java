@@ -8,16 +8,16 @@ public class Person {
     public String vorname;
     public String nachname;
     public String geburtsdatum;
-    public String gender; //true = weiblich | false = männlich
+    public Gender gender;
     public Adresse adresse;
 
 
-    public Person(String vorname, String nachname, String geburtsdatum, String gender, int plz, String ort, String straßenname, int hausnummer) {
+    public Person(String vorname, String nachname, String geburtsdatum, Gender gender, int plz, String ort, String strassenname, int hausnummer) {
         this.vorname = vorname;
         this.nachname = nachname;
         this.geburtsdatum = geburtsdatum;
         this.gender = gender;
-        this.adresse = new Adresse(plz, ort, straßenname, hausnummer);
+        this.adresse = new Adresse(plz, ort, strassenname, hausnummer);
     }
 
     public Person(String vorname, String nachname) {
@@ -25,7 +25,7 @@ public class Person {
         this.nachname = nachname;
     }
 
-    public Person(String vorname, String nachname, String geburtsdatum, String gender) {
+    public Person(String vorname, String nachname, String geburtsdatum, Gender gender) {
         this.vorname = vorname;
         this.nachname = nachname;
         this.geburtsdatum = geburtsdatum;

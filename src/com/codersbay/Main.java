@@ -12,9 +12,10 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
 
-
+        while (!scan.hasNext("!")) {
             System.out.println("Person hinzufügen: type (+)");
             System.out.println("Person entfernen: type (-)");
+            System.out.println("Liste drucken: type (#)");
 
             String choice = scan.nextLine();
 
@@ -34,8 +35,8 @@ public class Main {
                     System.out.println("Gib das Geburtsdatum ein!");
                     String geb1 = scan.nextLine();
 
-                    System.out.println("Gib das Geschlecht ein!");
-                    String gen1 = scan.nextLine();
+                    System.out.println("Gib das Geschlecht ein! --> MALE, FEMALE OTHER");
+                    Gender gen1 = Gender.valueOf(scan.nextLine());
 
                     System.out.println("Gib die PLZ ein!");
                     int plz1 = scan.nextInt();
@@ -50,7 +51,7 @@ public class Main {
                     int h1 = scan.nextInt();
 
                     personenverwaltung.createAndAddPerson(v1, n1, geb1, gen1, plz1, ort1, street1, h1);
-                } else if (anotherChoice == 2){
+                } else if (anotherChoice == 2) {
                     System.out.println("Gib den Vornamen ein!");
                     String v2 = scan.nextLine();
 
@@ -58,7 +59,7 @@ public class Main {
                     String n2 = scan.nextLine();
 
                     personenverwaltung.createAndAddPerson(v2, n2);
-                }else if (anotherChoice == 3){
+                } else if (anotherChoice == 3) {
                     System.out.println("Gib den Vornamen ein!");
                     String v3 = scan.nextLine();
 
@@ -68,18 +69,25 @@ public class Main {
                     System.out.println("Gib das Geburtsdatum ein!");
                     String geb3 = scan.nextLine();
 
-                    System.out.println("Gib das Geschlecht ein!");
-                    String gen3 = scan.nextLine();
+                    System.out.println("Gib das Geschlecht ein! --> MALE, FEMALE OTHER");
+                    Gender gen3 = Gender.valueOf(scan.nextLine());
 
-                    personenverwaltung.createAndAddPerson(v3, n3, geb3,gen3);
+                    personenverwaltung.createAndAddPerson(v3, n3, geb3, gen3);
                 }
+            } else if (choice.equals("-")) {
+                System.out.println("Which person do you want to have removed?");
+                int personToRemove = scan.nextInt();
+                personenverwaltung.removePerson(personToRemove);
+            } else if (choice.equals("#")) {
+                personenverwaltung.printList();
             }
-
-
-        personenverwaltung.printList();
 
         }
 
+        System.out.println("Your finished list:");
+        personenverwaltung.printList();
     }
+
+}
 
 

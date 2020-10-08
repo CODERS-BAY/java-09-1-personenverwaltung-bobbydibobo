@@ -4,13 +4,13 @@ public class Adresse {
 
     public int plz;
     public String ort;
-    public String straßenname;
+    public String strassenname;
     public int hausnummer;
 
-    public Adresse(int plz, String ort, String straßenname, int hausnummer) {
+    public Adresse(int plz, String ort, String strassenname, int hausnummer) {
         this.plz = plz;
         this.ort = ort;
-        this.straßenname = straßenname;
+        this.strassenname = strassenname;
         this.hausnummer = hausnummer;
     }
 
@@ -19,7 +19,7 @@ public class Adresse {
         return "Adresse{" +
                 "plz=" + plz +
                 ", ort='" + ort + '\'' +
-                ", straßenname='" + straßenname + '\'' +
+                ", straßenname='" + strassenname + '\'' +
                 ", hausnummer=" + hausnummer +
                 '}';
     }

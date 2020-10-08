@@ -12,7 +12,7 @@ public class Personenverwaltung {
     }
 
 
-    public void createAndAddPerson(String vorname, String nachname, String geburtsdatum, String gender, int plz, String ort, String straße, int hausnummer) {
+    public void createAndAddPerson(String vorname, String nachname, String geburtsdatum, Gender gender, int plz, String ort, String straße, int hausnummer) {
 
         Person person = new Person(vorname, nachname, geburtsdatum, gender, plz, ort, straße, hausnummer);
         persons.add(person);
@@ -24,18 +24,20 @@ public class Personenverwaltung {
         persons.add(person);
     }
 
-    public void createAndAddPerson(String vorname, String nachname, String geburtsdatum, String gender) {
+    public void createAndAddPerson(String vorname, String nachname, String geburtsdatum, Gender gender) {
 
         Person person = new Person(vorname, nachname, geburtsdatum, gender);
         persons.add(person);
     }
 
-    public void removePerson(Person person){
-        persons.remove(person);
+    public void removePerson(int index){
+        persons.remove(index);
     }
 
     public void printList(){
-        System.out.println(persons);
+        for (Person person:persons){
+            System.out.println(person);
+        }
     }
 
     @Override
