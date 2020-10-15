@@ -1,93 +1,39 @@
 package com.codersbay;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Personenverwaltung personenverwaltung = new Personenverwaltung(new ArrayList<>());
 
-        Scanner scan = new Scanner(System.in);
+        //Familie Mayer
+        Person gunther = new Person("Gunther", "Mayer", "07.09.1872", Gender.valueOf("MALE"), 4020, "Linz", "Paracelsusstrasse", 37);
+        Person oliver = new Person("Oliver", "Mayer", "04.06.1998", Gender.valueOf("MALE"), 4020, "Linz", "Paracelsusstrasse", 37);
+        Person sarah = new Person("Sarah", "Mayer", "12.03.2002", Gender.valueOf("FEMALE"), 4020, "Linz", "Paracelsusstrasse", 37);
+        Person lisl = new Person("Lisl", "Mayer", "24.12.1875", Gender.valueOf("FEMALE"), 4020, "Linz", "Paracelsusstrasse", 37);
+        Person doggoButStillPerson = new Person("Dexter", "Mayer", "15.07.2014", Gender.valueOf("OTHER"), 4020, "Linz", "Paracelsusstrasse", 37);
 
-        while (!scan.hasNext("!")) {
-            System.out.println("Person hinzufügen: type (+)");
-            System.out.println("Person entfernen: type (-)");
-            System.out.println("Liste drucken: type (#)");
+        ArrayList<Person> myFamily = new ArrayList<>();
+        Personenverwaltung allThemPeople = new Personenverwaltung(myFamily);
 
-            String choice = scan.nextLine();
+        allThemPeople.addPerson(gunther);
+        allThemPeople.addPerson(oliver);
+        allThemPeople.addPerson(sarah);
+        allThemPeople.addPerson(lisl);
+        allThemPeople.addPerson(doggoButStillPerson);
 
-            if (choice.equals("+")) {
-                System.out.println("Person mit Allem -> Type: '1'");
-                System.out.println("Person mit Name -> Type: '2'");
-                System.out.println("Person mit Name, Geschlecht und Geburtsdatum -> Type: '3'");
-                int anotherChoice = scan.nextInt();
+        allThemPeople.printList();
 
-                if (anotherChoice == 1) {
-                    System.out.println("Gib den Vornamen ein!");
-                    String v1 = scan.nextLine();
+        allThemPeople.removePerson(4);
 
-                    System.out.println("Gib den Nachnamen ein!");
-                    String n1 = scan.nextLine();
+        allThemPeople.printList();
 
-                    System.out.println("Gib das Geburtsdatum ein!");
-                    String geb1 = scan.nextLine();
 
-                    System.out.println("Gib das Geschlecht ein! --> MALE, FEMALE OTHER");
-                    Gender gen1 = Gender.valueOf(scan.nextLine());
 
-                    System.out.println("Gib die PLZ ein!");
-                    int plz1 = scan.nextInt();
-
-                    System.out.println("Gib den Ort ein!");
-                    String ort1 = scan.nextLine();
-
-                    System.out.println("Gib die Straße ein!");
-                    String street1 = scan.nextLine();
-
-                    System.out.println("Gib den Hausnummer ein!");
-                    int h1 = scan.nextInt();
-
-                    personenverwaltung.createAndAddPerson(v1, n1, geb1, gen1, plz1, ort1, street1, h1);
-                } else if (anotherChoice == 2) {
-                    System.out.println("Gib den Vornamen ein!");
-                    String v2 = scan.nextLine();
-
-                    System.out.println("Gib den Nachnamen ein!");
-                    String n2 = scan.nextLine();
-
-                    personenverwaltung.createAndAddPerson(v2, n2);
-                } else if (anotherChoice == 3) {
-                    System.out.println("Gib den Vornamen ein!");
-                    String v3 = scan.nextLine();
-
-                    System.out.println("Gib den Nachnamen ein!");
-                    String n3 = scan.nextLine();
-
-                    System.out.println("Gib das Geburtsdatum ein!");
-                    String geb3 = scan.nextLine();
-
-                    System.out.println("Gib das Geschlecht ein! --> MALE, FEMALE OTHER");
-                    Gender gen3 = Gender.valueOf(scan.nextLine());
-
-                    personenverwaltung.createAndAddPerson(v3, n3, geb3, gen3);
-                }
-            } else if (choice.equals("-")) {
-                System.out.println("Which person do you want to have removed?");
-                int personToRemove = scan.nextInt();
-                personenverwaltung.removePerson(personToRemove);
-            } else if (choice.equals("#")) {
-                personenverwaltung.printList();
-            }
-
-        }
-
-        System.out.println("Your finished list:");
-        personenverwaltung.printList();
     }
-
 }
 
 

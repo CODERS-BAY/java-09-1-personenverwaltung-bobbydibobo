@@ -19,7 +19,7 @@ public class Adresse {
         return "Adresse{" +
                 "plz=" + plz +
                 ", ort='" + ort + '\'' +
-                ", straßenname='" + strassenname + '\'' +
+                ", strassenname='" + strassenname + '\'' +
                 ", hausnummer=" + hausnummer +
                 '}';
     }
